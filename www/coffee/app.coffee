@@ -23,11 +23,16 @@ angular.module('starter', [
     url: '/playlists'
     views: 'menuContent':
       templateUrl: 'templates/playlists.html'
-      controller: 'PlaylistsCtrl').state 'app.single',
+      controller: 'PlaylistsCtrl').state('app.single',
     url: '/playlists/:playlistId'
     views: 'menuContent':
       templateUrl: 'templates/playlist.html'
-      controller: 'PlaylistCtrl'
+      controller: 'PlaylistCtrl').state('app.posts',
+    url: '/posts'
+    views: 'menuContent':
+      templateUrl: 'templates/posts.html'
+      controller: 'PostsCtrl'
+  )
   $urlRouterProvider.otherwise '/app/playlists'
   return
 

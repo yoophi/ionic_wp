@@ -44,6 +44,14 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
         controller: 'PlaylistCtrl'
       }
     }
+  }).state('app.posts', {
+    url: '/posts',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/posts.html',
+        controller: 'PostsCtrl'
+      }
+    }
   });
   $urlRouterProvider.otherwise('/app/playlists');
 });

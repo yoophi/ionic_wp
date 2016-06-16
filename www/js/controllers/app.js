@@ -43,4 +43,4 @@ AppCtrl = (function(superClass) {
 
 })(BaseController);
 
-angular.module('starter.controllers', []).controller('AppCtrl', AppCtrl);
+angular.module('starter.controllers').controller('AppCtrl', AppCtrl);

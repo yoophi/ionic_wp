@@ -1,4 +1,10 @@
 {
   "name": "ionic_wp",
-  "app_id": ""
+  "app_id": "",
+    "proxies": [
+      {
+        "path": "/v2",
+        "proxyUrl": "http://yoophi.com/blog/wp-json/wp/v2"
+      }
+    ]
 }
