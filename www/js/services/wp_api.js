@@ -33,7 +33,10 @@ WpApiService = (function(superClass) {
 
   WpApiService.prototype.findPosts = function(categoryId) {
     var promise, qs;
-    qs = categoryId !== "0" ? "?categories=" + categoryId : "";
+    if (categoryId == null) {
+      categoryId = 0;
+    }
+    qs = categoryId > 0 ? "?categories=" + categoryId : "";
     promise = this.$http.get(this.API_ENDPOINT + '/posts' + qs, {}).error(function(data, status) {});
     return promise;
   };

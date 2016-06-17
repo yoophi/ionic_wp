@@ -13,7 +13,7 @@ PostsCtrl = (function(superClass) {
 
   PostsCtrl.prototype.initialize = function() {
     var categoryId;
-    categoryId = this.$stateParams.categoryId || 0;
+    categoryId = this.$stateParams.categoryId || "0";
     console.log('PostsCtrl', 'categoryId', categoryId);
     return this.WpApiService.findPosts(categoryId).success((function(_this) {
       return function(response) {

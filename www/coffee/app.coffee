@@ -41,7 +41,7 @@ angular.module('starter', [
         controller: 'PlaylistCtrl'
     )
     .state('app.posts',
-      url: '/posts/:categoryId'
+      url: '/posts/{categoryId:int}'
       views: 'menuContent':
         templateUrl: 'templates/posts.html'
         controller: 'PostsCtrl'

@@ -45,7 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
       }
     }
   }).state('app.posts', {
-    url: '/posts/:categoryId',
+    url: '/posts/{categoryId:int}',
     views: {
       'menuContent': {
         templateUrl: 'templates/posts.html',

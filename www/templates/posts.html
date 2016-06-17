@@ -6,5 +6,6 @@
         <div ng-bind-html="post.excerpt.rendered"></div>
       </ion-item>
     </ion-list>
+    <p ng-show="posts.length == 0" style="padding: 1em;">포스트가 없습니다.</p>
   </ion-content>
 </ion-view>
