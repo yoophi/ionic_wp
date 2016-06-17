@@ -1,8 +1,10 @@
 class PostsCtrl extends BaseController
-  @inject('$scope', 'WpApiService')
+  @inject('$scope', '$stateParams', 'WpApiService')
 
   initialize: ->
-    @WpApiService.findPosts().success((response) =>
+    categoryId = @$stateParams.categoryId || 0
+    console.log 'PostsCtrl', 'categoryId', categoryId
+    @WpApiService.findPosts(categoryId).success((response) =>
       console.log response
       @$scope.posts = response
     )

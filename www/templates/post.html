@@ -1,0 +1,10 @@
+<ion-view view-title="Posts">
+  <ion-content>
+    <div style="padding: 0.5em">
+
+    <h1>{{ post.title.rendered }}</h1>
+    <div ng-bind-html="post.content.rendered"></div>
+    <pre style="background-color: #ccc; font-size: small">{{ post | json }}</pre>
+    </div>
+  </ion-content>
+</ion-view>

@@ -9,10 +9,13 @@ PostsCtrl = (function(superClass) {
     return PostsCtrl.__super__.constructor.apply(this, arguments);
   }
 
-  PostsCtrl.inject('$scope', 'WpApiService');
+  PostsCtrl.inject('$scope', '$stateParams', 'WpApiService');
 
   PostsCtrl.prototype.initialize = function() {
-    return this.WpApiService.findPosts().success((function(_this) {
+    var categoryId;
+    categoryId = this.$stateParams.categoryId || 0;
+    console.log('PostsCtrl', 'categoryId', categoryId);
+    return this.WpApiService.findPosts(categoryId).success((function(_this) {
       return function(response) {
         console.log(response);
         return _this.$scope.posts = response;

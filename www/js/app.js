@@ -45,11 +45,19 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
       }
     }
   }).state('app.posts', {
-    url: '/posts',
+    url: '/posts/:categoryId',
     views: {
       'menuContent': {
         templateUrl: 'templates/posts.html',
         controller: 'PostsCtrl'
+      }
+    }
+  }).state('app.post', {
+    url: '/post/:postId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/post.html',
+        controller: 'PostCtrl'
       }
     }
   });

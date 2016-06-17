@@ -19,9 +19,22 @@ WpApiService = (function(superClass) {
     return this.API_ENDPOINT;
   };
 
-  WpApiService.prototype.findPosts = function() {
+  WpApiService.prototype.findCategories = function() {
     var promise;
-    promise = this.$http.get(this.API_ENDPOINT + '/posts', {}).error(function(data, status) {});
+    promise = this.$http.get(this.API_ENDPOINT + '/categories', {}).error(function(data, status) {});
+    return promise;
+  };
+
+  WpApiService.prototype.findPost = function(postId) {
+    var promise;
+    promise = this.$http.get(this.API_ENDPOINT + ("/posts/" + postId), {}).error(function(data, status) {});
+    return promise;
+  };
+
+  WpApiService.prototype.findPosts = function(categoryId) {
+    var promise, qs;
+    qs = categoryId !== "0" ? "?categories=" + categoryId : "";
+    promise = this.$http.get(this.API_ENDPOINT + '/posts' + qs, {}).error(function(data, status) {});
     return promise;
   };
 

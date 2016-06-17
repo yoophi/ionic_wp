@@ -9,17 +9,19 @@ AppCtrl = (function(superClass) {
     return AppCtrl.__super__.constructor.apply(this, arguments);
   }
 
-  AppCtrl.inject('$scope', '$ionicModal', '$timeout');
+  AppCtrl.inject('$scope', 'WpApiService', '$ionicModal', '$timeout');
 
   AppCtrl.prototype.initialize = function() {
     this.$scope.loginData = {};
-    return this.$ionicModal.fromTemplateUrl('templates/login.html', {
+    this.$ionicModal.fromTemplateUrl('templates/login.html', {
       scope: this.$scope
     }).then((function(_this) {
       return function(modal) {
         _this.$scope.modal = modal;
       };
     })(this));
+    this.getWpCategories();
+    return this.getWpTotalPosts();
   };
 
   AppCtrl.prototype.closeLogin = function() {
@@ -37,6 +39,24 @@ AppCtrl = (function(superClass) {
         _this.$scope.closeLogin();
       };
     })(this)), 1000);
+  };
+
+  AppCtrl.prototype.getWpCategories = function() {
+    return this.WpApiService.findCategories().success((function(_this) {
+      return function(response, status, headers, config) {
+        console.log(response);
+        return _this.$scope.categories = response;
+      };
+    })(this));
+  };
+
+  AppCtrl.prototype.getWpTotalPosts = function() {
+    return this.WpApiService.findPosts().success((function(_this) {
+      return function(response, status, headers, config) {
+        _this.$scope.totalPosts = headers('X-WP-Total');
+        return console.log('X-WP-Total', headers('X-WP-Total'));
+      };
+    })(this));
   };
 
   return AppCtrl;

@@ -41,10 +41,16 @@ angular.module('starter', [
         controller: 'PlaylistCtrl'
     )
     .state('app.posts',
-      url: '/posts'
+      url: '/posts/:categoryId'
       views: 'menuContent':
         templateUrl: 'templates/posts.html'
         controller: 'PostsCtrl'
+    )
+    .state('app.post',
+      url: '/post/:postId'
+      views: 'menuContent':
+        templateUrl: 'templates/post.html'
+        controller: 'PostCtrl'
     )
   $urlRouterProvider.otherwise '/app/playlists'
   return

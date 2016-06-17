@@ -30,8 +30,14 @@
         <ion-item menu-close href="#/app/playlists">
           Playlists
         </ion-item>
-        <ion-item menu-close href="#/app/posts">
-          Posts
+      </ion-list>
+      <h3>Posts</h3>
+      <ion-list>
+        <ion-item menu-close href="#/app/posts/0">
+          all <small>({{ totalPosts }})</small>
+        </ion-item>
+        <ion-item menu-close ng-repeat="category in categories" ui-sref="app.posts({categoryId: category.id})">
+          {{ category.name }} <small>({{ category.count }})</small>
         </ion-item>
       </ion-list>
     </ion-content>
