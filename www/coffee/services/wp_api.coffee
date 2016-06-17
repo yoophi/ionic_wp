@@ -19,8 +19,8 @@ class WpApiService extends BaseService
     )
     promise
 
-  findPosts: (categoryId = 0) ->
-    qs = if categoryId > 0 then "?categories=#{categoryId}" else ""
+  findPosts: (categoryId = null) ->
+    qs = if categoryId then "?categories=#{categoryId}" else ""
     promise = @$http.get(@API_ENDPOINT + '/posts' + qs, {}).error((data, status) ->
       return
     )

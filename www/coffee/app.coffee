@@ -40,8 +40,16 @@ angular.module('starter', [
         templateUrl: 'templates/playlist.html'
         controller: 'PlaylistCtrl'
     )
+    .state('app.posts-all',
+      url: '/posts'
+      params:
+        categoryId: null
+      views: 'menuContent':
+        templateUrl: 'templates/posts.html'
+        controller: 'PostsCtrl'
+    )
     .state('app.posts',
-      url: '/posts/{categoryId:int}'
+      url: '/posts/:categoryId'
       views: 'menuContent':
         templateUrl: 'templates/posts.html'
         controller: 'PostsCtrl'
